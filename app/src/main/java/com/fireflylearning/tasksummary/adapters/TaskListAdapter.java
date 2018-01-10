@@ -23,6 +23,7 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
         TextView title;
         TextView date;
         TextView flags;
+        TextView txtDueDate;
     }
 
     public TaskListAdapter(Context context, ArrayList<Task> tasks) {
@@ -41,11 +42,13 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
             viewHolder.title = taskView.findViewById(R.id.title);
             viewHolder.flags = taskView.findViewById(R.id.flags);
             viewHolder.date = taskView.findViewById(R.id.date);
+            viewHolder.txtDueDate = taskView.findViewById(R.id.textview_task_due_date);
             taskView.setTag(viewHolder);
         } else {
             taskView = convertView;
-            viewHolder = (ViewHolder)taskView.getTag();
+            viewHolder = (ViewHolder) taskView.getTag();
         }
+
 
         Task task = getItem(position);
 
@@ -55,7 +58,8 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
             viewHolder.flags.setText(task.toFlagsString());
 
             SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE d MMM yyyy, h:mm a");
-            viewHolder.date.setText(dateFormatter.format(task.set));
+            viewHolder.date.setText(dateFormatter.format(task.set != null ? task.set : ""));
+            viewHolder.txtDueDate.setText(dateFormatter.format(task.due != null ? task.due : ""));
         }
 
         return taskView;

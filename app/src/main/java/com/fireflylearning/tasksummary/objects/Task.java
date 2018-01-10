@@ -1,5 +1,7 @@
 package com.fireflylearning.tasksummary.objects;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,8 +13,8 @@ public class Task {
     public int id;
     public String title;
     public String description_page_url;
-    public Date set;
-    public Date due;
+    public Date set = new Date();
+    public Date due = new Date();
     public Boolean archived;
     public Boolean draft;
     public Boolean show_in_markbook;
@@ -20,25 +22,24 @@ public class Task {
     public Boolean show_in_parent_portal;
     public Boolean hide_addressees;
 
-    public String toFlagsString()
-    {
+    public String toFlagsString() {
         ArrayList<String> flags = new ArrayList<>();
 
-        if(archived)
+        if (archived)
             flags.add("archived");
 
-        if(draft)
+        if (draft)
             flags.add("draft");
 
-        if(show_in_markbook && highlight_in_markbook)
+        if (show_in_markbook && highlight_in_markbook)
             flags.add("markbook (highlighted)");
-        else if(show_in_markbook)
+        else if (show_in_markbook)
             flags.add("markbook");
 
-        if(show_in_parent_portal)
+        if (show_in_parent_portal)
             flags.add("parents");
 
-        if(hide_addressees)
+        if (hide_addressees)
             flags.add("no addressees");
 
         return android.text.TextUtils.join(", ", flags);

@@ -11,6 +11,6 @@
     <string name="error_invalid_host">Please check the host name</string>
     <string name="error_internet_connection">Please check your internet connection</string>
     <string name="task_list_no_tasks">You do not have any tasks</string>
-    <string name="task_list_loading">Loading data...</string>
+    <string name="task_list_loading">Loading data…</string>
     <string name="task_list_error">An error occurred while loading data</string>
 </resources>
