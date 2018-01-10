@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fireflylearning.tasksummary.R;
@@ -24,6 +25,7 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
         TextView date;
         TextView flags;
         TextView txtDueDate;
+        LinearLayout layoutArchived;
     }
 
     public TaskListAdapter(Context context, ArrayList<Task> tasks) {
@@ -42,13 +44,13 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
             viewHolder.title = taskView.findViewById(R.id.title);
             viewHolder.flags = taskView.findViewById(R.id.flags);
             viewHolder.date = taskView.findViewById(R.id.date);
-            viewHolder.txtDueDate = taskView.findViewById(R.id.textview_task_due_date);
+            viewHolder.txtDueDate = taskView.findViewById(R.id.textview_task_list_row_due_date);
+            viewHolder.layoutArchived = taskView.findViewById(R.id.linearlayout_task_list_row_archived);
             taskView.setTag(viewHolder);
         } else {
             taskView = convertView;
             viewHolder = (ViewHolder) taskView.getTag();
         }
-
 
         Task task = getItem(position);
 
@@ -58,10 +60,19 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
             viewHolder.flags.setText(task.toFlagsString());
 
             SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE d MMM yyyy, h:mm a");
-            viewHolder.date.setText(dateFormatter.format(task.set != null ? task.set : ""));
-            viewHolder.txtDueDate.setText(dateFormatter.format(task.due != null ? task.due : ""));
+            viewHolder.date.setText(task.due != null ? dateFormatter.format(task.set) : "");
+            viewHolder.txtDueDate.setText(task.due != null ? dateFormatter.format(task.due) : "");
+
+            viewHolder.layoutArchived.setVisibility(setVisibility(task.archived));
         }
 
         return taskView;
+    }
+
+    private int setVisibility(Boolean archived) {
+        if (archived == null || !archived)
+            return View.GONE;
+        else
+            return View.VISIBLE;
     }
 }
