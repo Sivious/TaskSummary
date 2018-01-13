@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.fireflylearning.tasksummary.FireflyRequestQueue;
 import com.fireflylearning.tasksummary.R;
 import com.fireflylearning.tasksummary.activities.TaskListActivity;
+import com.fireflylearning.tasksummary.logic.database.TasksDB;
 
 
 /**
@@ -169,6 +170,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
 
                         performLogin();
+                        createDB();
                     }
                 },
                 new ErrorListener() {
@@ -180,6 +182,10 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    private void createDB() {
+        TasksDB db = new TasksDB(this);
     }
 
     private void showTokenError(tokenError tokenError) {

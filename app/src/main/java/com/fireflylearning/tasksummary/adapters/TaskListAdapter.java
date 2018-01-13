@@ -60,8 +60,8 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
             viewHolder.flags.setText(task.toFlagsString());
 
             SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE d MMM yyyy, h:mm a");
-            viewHolder.date.setText(task.due != null ? dateFormatter.format(task.set) : "");
-            viewHolder.txtDueDate.setText(task.due != null ? dateFormatter.format(task.due) : "");
+            viewHolder.date.setText(task.due_date != null ? dateFormatter.format(task.set_date) : "");
+            viewHolder.txtDueDate.setText(task.due_date != null ? dateFormatter.format(task.due_date) : "");
 
             viewHolder.layoutArchived.setVisibility(setVisibility(task.archived));
         }
