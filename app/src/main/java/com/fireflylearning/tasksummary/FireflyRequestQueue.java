@@ -59,18 +59,18 @@ public class FireflyRequestQueue {
         return "https://" + mHost + "/" + postfix + "?" + query;
     }
 
-    public void RunGetRequest(String relativeUrl, Listener<String> listner, ErrorListener errorListner) {
+    public void RunGetRequest(String relativeUrl, Listener<String> listener, ErrorListener errorListner) {
 
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 BuildUrl(relativeUrl),
-                listner,
+                listener,
                 errorListner);
 
         mRequestQueue.add(request);
     }
 
-    public void RunGraphqlQuery(int queryResourceId, final Listener<JSONObject> listner, final ErrorListener errorListner) {
+    public void RunGraphqlQuery(int queryResourceId, final Listener<JSONObject> listener, final ErrorListener errorListner) {
 
         final String query = mContext.getResources().getString(queryResourceId);
 
@@ -82,7 +82,7 @@ public class FireflyRequestQueue {
                     public void onResponse(String response) {
                         try {
                             JSONObject json = new JSONObject(response);
-                            listner.onResponse(json.getJSONObject("data"));
+                            listener.onResponse(json.getJSONObject("data"));
                         } catch (JSONException ex) {
                             errorListner.onErrorResponse(new VolleyError());
                         }
@@ -100,5 +100,9 @@ public class FireflyRequestQueue {
         };
 
         mRequestQueue.add(request);
+    }
+
+    public String createSession(String url){
+        return BuildUrl("login/api/getsession") + "&Prelogin=/" + url;
     }
 }

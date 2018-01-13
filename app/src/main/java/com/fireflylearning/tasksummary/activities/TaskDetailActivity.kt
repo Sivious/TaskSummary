@@ -2,10 +2,12 @@ package com.fireflylearning.tasksummary.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.webkit.WebView
 import com.fireflylearning.tasksummary.R
 import android.webkit.WebViewClient
+import com.fireflylearning.tasksummary.FireflyRequestQueue
 import com.fireflylearning.tasksummary.logic.common.Constants
 
 
@@ -38,9 +40,19 @@ class TaskDetailActivity : AppCompatActivity() {
         webView.setWebViewClient(WebViewClient())
         webView.getSettings().setJavaScriptEnabled(true)
 
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
+
         val intent = intent
-        url = intent.getStringExtra(Constants.INTENT_URL)
+        url = FireflyRequestQueue.getInstance().createSession(intent.getStringExtra(Constants.INTENT_URL))
+
+        Log.d("SIVIANES", "url: " + url)
+        Log.d("SIVIANES", "data: " + intent.getStringExtra(Constants.INTENT_URL))
+
+        //I really do not understand this. The URL is created exactly as documentation says but, it does not show anything in webview
     }
 
-
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
 }

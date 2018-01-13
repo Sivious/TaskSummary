@@ -67,14 +67,14 @@ public class TaskListActivity extends AppCompatActivity {
     }
 
     private void loadListFromCursor(Cursor tasksCursor) {
-        ArrayList<Task> tasksList =  createTasksListFromCursor(tasksCursor);
+        ArrayList<Task> tasksList = createTasksListFromCursor(tasksCursor);
         loadAdapter(tasksList);
     }
 
     private ArrayList<Task> createTasksListFromCursor(Cursor tasksCursor) {
         ArrayList<Task> mArrayList = new ArrayList<Task>();
 
-        for(tasksCursor.moveToFirst(); !tasksCursor.isAfterLast(); tasksCursor.moveToNext()) {
+        for (tasksCursor.moveToFirst(); !tasksCursor.isAfterLast(); tasksCursor.moveToNext()) {
             mArrayList.add(new Task(tasksCursor.getInt(0), tasksCursor.getString(1), tasksCursor.getString(2), getFormatDate(tasksCursor.getString(3)), getFormatDate(tasksCursor.getString(4)), createBoolean(tasksCursor.getInt(5)), createBoolean(tasksCursor.getInt(6)), createBoolean(tasksCursor.getInt(7)), createBoolean(tasksCursor.getInt(8)), createBoolean(tasksCursor.getInt(9)), createBoolean(tasksCursor.getInt(10))));
         }
 
@@ -88,7 +88,7 @@ public class TaskListActivity extends AppCompatActivity {
     private Date getFormatDate(String unformatDate) {
         Date date = null;
 
-        if (TextUtils.isEmpty(unformatDate)){
+        if (TextUtils.isEmpty(unformatDate)) {
             return date;
         }
 
@@ -98,8 +98,6 @@ public class TaskListActivity extends AppCompatActivity {
             System.out.println(date);
         } catch (ParseException e) {
             e.printStackTrace();
-            Log.e("SIVI", e.getMessage());
-            Log.e("SIVI", unformatDate);
         }
 
         return date;
@@ -127,9 +125,7 @@ public class TaskListActivity extends AppCompatActivity {
     }
 
     private void buildTaskList(JSONArray data) {
-
         Gson gson = new Gson();
-        Log.d("SIVI", data.toString());
 
         ArrayList<Task> taskArray = gson.fromJson(data.toString(), new TypeToken<ArrayList<Task>>() {
         }.getType());
