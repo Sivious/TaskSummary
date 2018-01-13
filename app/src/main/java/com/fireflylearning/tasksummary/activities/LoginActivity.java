@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
+        mTokenView.requestFocus();
 
         Button signInButton = (Button) findViewById(R.id.sign_in_button);
         signInButton.setOnClickListener(new OnClickListener() {

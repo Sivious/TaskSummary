@@ -3,6 +3,7 @@ package com.fireflylearning.tasksummary.activities;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -23,6 +24,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -82,8 +85,24 @@ public class TaskListActivity extends AppCompatActivity {
         return anInt != 0;
     }
 
-    private Date getFormatDate(String aLong) {
-        return new Date(aLong);
+    private Date getFormatDate(String unformatDate) {
+        Date date = null;
+
+        if (TextUtils.isEmpty(unformatDate)){
+            return date;
+        }
+
+        SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss z YYYY");
+        try {
+            date = format.parse(unformatDate);
+            System.out.println(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.e("SIVI", e.getMessage());
+            Log.e("SIVI", unformatDate);
+        }
+
+        return date;
     }
 
     private void loadListFromAPI() {
@@ -131,7 +150,7 @@ public class TaskListActivity extends AppCompatActivity {
 
     private void persistTaskList(ArrayList<Task> taskArray) {
         for (Task task : taskArray) {
-            tasksDB.createRecords(task.id, task.title, task.description_page_url, task.set_date != null ? task.set_date.toString() : "", task.due_date != null ? task.due_date.toString() : "", task.archived, task.draft, task.show_in_markbook, task.highlight_in_markbook, task.show_in_parent_portal, task.hide_addressees);
+            tasksDB.createRecords(task.id, task.title, task.description_page_url, task.set != null ? task.set.toString() : "", task.due != null ? task.due.toString() : "", task.archived, task.draft, task.show_in_markbook, task.highlight_in_markbook, task.show_in_parent_portal, task.hide_addressees);
         }
     }
 
@@ -156,10 +175,10 @@ public class TaskListActivity extends AppCompatActivity {
 
     public class TaskSetComparator implements Comparator<Task> {
         public int compare(Task left, Task right) {
-            if (left.set_date == null) return -1;
-            if (right.set_date == null) return 1;
+            if (left.set == null) return -1;
+            if (right.set == null) return 1;
 
-            return left.set_date.compareTo(right.set_date);
+            return left.set.compareTo(right.set);
         }
     }
 }

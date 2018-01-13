@@ -24,7 +24,7 @@ public class TasksDB {
     public final static String TASK_TITLE = "title";
     public final static String TASK_DESCRIPTION_PAGE_URL = "description_page_url";
     public final static String TASK_SET = "set_date";
-    public final static String TASK_DUE = "set_date";
+    public final static String TASK_DUE = "due_date";
     public final static String TASK_ARCHIVED = "archived";
     public final static String TASK_DRAFT = "draft";
     public final static String TASK_SHOW_IN_MARKBOOK = "show_in_markbook";
