@@ -3,11 +3,11 @@ package com.fireflylearning.tasksummary.activities;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.volley.Response;
 import com.android.volley.Response.Listener;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.VolleyError;
@@ -72,7 +72,7 @@ public class TaskListActivity extends AppCompatActivity {
         ArrayList<Task> mArrayList = new ArrayList<Task>();
 
         for(tasksCursor.moveToFirst(); !tasksCursor.isAfterLast(); tasksCursor.moveToNext()) {
-            mArrayList.add(new Task(tasksCursor.getInt(0), tasksCursor.getString(1), tasksCursor.getString(2), getFormatDate(tasksCursor.getLong(3)), getFormatDate(tasksCursor.getLong(4)), createBoolean(tasksCursor.getInt(5)), createBoolean(tasksCursor.getInt(6)), createBoolean(tasksCursor.getInt(7)), createBoolean(tasksCursor.getInt(8)), createBoolean(tasksCursor.getInt(9)), createBoolean(tasksCursor.getInt(10))));
+            mArrayList.add(new Task(tasksCursor.getInt(0), tasksCursor.getString(1), tasksCursor.getString(2), getFormatDate(tasksCursor.getString(3)), getFormatDate(tasksCursor.getString(4)), createBoolean(tasksCursor.getInt(5)), createBoolean(tasksCursor.getInt(6)), createBoolean(tasksCursor.getInt(7)), createBoolean(tasksCursor.getInt(8)), createBoolean(tasksCursor.getInt(9)), createBoolean(tasksCursor.getInt(10))));
         }
 
         return mArrayList;
@@ -82,7 +82,7 @@ public class TaskListActivity extends AppCompatActivity {
         return anInt != 0;
     }
 
-    private Date getFormatDate(long aLong) {
+    private Date getFormatDate(String aLong) {
         return new Date(aLong);
     }
 
@@ -110,6 +110,7 @@ public class TaskListActivity extends AppCompatActivity {
     private void buildTaskList(JSONArray data) {
 
         Gson gson = new Gson();
+        Log.d("SIVI", data.toString());
 
         ArrayList<Task> taskArray = gson.fromJson(data.toString(), new TypeToken<ArrayList<Task>>() {
         }.getType());
@@ -117,7 +118,6 @@ public class TaskListActivity extends AppCompatActivity {
         Collections.sort(taskArray, new TaskSetComparator());
 
         loadAdapter(taskArray);
-
         persistTaskList(taskArray);
     }
 
@@ -131,7 +131,7 @@ public class TaskListActivity extends AppCompatActivity {
 
     private void persistTaskList(ArrayList<Task> taskArray) {
         for (Task task : taskArray) {
-            tasksDB.createRecords(task.id, task.title, task.description_page_url, task.set_date, task.due_date, task.archived, task.draft, task.show_in_markbook, task.highlight_in_markbook, task.show_in_parent_portal, task.hide_addressees);
+            tasksDB.createRecords(task.id, task.title, task.description_page_url, task.set_date != null ? task.set_date.toString() : "", task.due_date != null ? task.due_date.toString() : "", task.archived, task.draft, task.show_in_markbook, task.highlight_in_markbook, task.show_in_parent_portal, task.hide_addressees);
         }
     }
 
@@ -156,6 +156,9 @@ public class TaskListActivity extends AppCompatActivity {
 
     public class TaskSetComparator implements Comparator<Task> {
         public int compare(Task left, Task right) {
+            if (left.set_date == null) return -1;
+            if (right.set_date == null) return 1;
+
             return left.set_date.compareTo(right.set_date);
         }
     }

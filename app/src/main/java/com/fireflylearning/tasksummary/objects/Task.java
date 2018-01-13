@@ -13,8 +13,8 @@ public class Task {
     public int id;
     public String title;
     public String description_page_url;
-    public Date set_date = new Date();
-    public Date due_date = new Date();
+    public Date set_date;
+    public Date due_date;
     public Boolean archived;
     public Boolean draft;
     public Boolean show_in_markbook;

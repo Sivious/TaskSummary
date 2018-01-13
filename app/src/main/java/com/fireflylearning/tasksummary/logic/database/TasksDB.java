@@ -18,19 +18,19 @@ public class TasksDB {
     private DBHelper dbHelper;
     private SQLiteDatabase database;
 
-    public final static String TASKS_TABLE = "Tasks"; // name of table
+    public final static String TASKS_TABLE = "Tasks";
 
-    public final static String TASK_ID = "id"; // id value for employee
-    public final static String TASK_TITLE = "title";  // name of employee
-    public final static String TASK_DESCRIPTION_PAGE_URL = "description_page_url";  // name of employee
-    public final static String TASK_SET = "set_date";  // name of employee
-    public final static String TASK_DUE = "set_date";  // name of employee
-    public final static String TASK_ARCHIVED = "archived";  // name of employee
-    public final static String TASK_DRAFT = "draft";  // name of employee
-    public final static String TASK_SHOW_IN_MARKBOOK = "show_in_markbook";  // name of employee
-    public final static String TASK_HIGHLIGHT_IN_MARKBOOK = "highlight_in_markbook";  // name of employee
-    public final static String TASK_SHOW_IN_PARENT_PORTAL = "show_in_parent_portal";  // name of employee
-    public final static String TASK_HIDE_ADDRESSEES = "hide_addressees";  // name of employee
+    public final static String TASK_ID = "id";
+    public final static String TASK_TITLE = "title";
+    public final static String TASK_DESCRIPTION_PAGE_URL = "description_page_url";
+    public final static String TASK_SET = "set_date";
+    public final static String TASK_DUE = "set_date";
+    public final static String TASK_ARCHIVED = "archived";
+    public final static String TASK_DRAFT = "draft";
+    public final static String TASK_SHOW_IN_MARKBOOK = "show_in_markbook";
+    public final static String TASK_HIGHLIGHT_IN_MARKBOOK = "highlight_in_markbook";
+    public final static String TASK_SHOW_IN_PARENT_PORTAL = "show_in_parent_portal";
+    public final static String TASK_HIDE_ADDRESSEES = "hide_addressees";
     //endregion
 
     /**
@@ -41,7 +41,7 @@ public class TasksDB {
         database = dbHelper.getWritableDatabase();
     }
 
-    public long createRecords(int id, String title, String description_page_url, Date set, Date due,
+    public long createRecords(int id, String title, String description_page_url, String set, String due,
                               Boolean archived, Boolean draft, Boolean show_in_markbook, Boolean highlight_in_markbook, Boolean show_in_parent_portal, Boolean hide_addressees) {
 
         ContentValues contentValues = new ContentValues();
@@ -49,8 +49,8 @@ public class TasksDB {
         contentValues.put("id", id);
         contentValues.put("title", title);
         contentValues.put("description_page_url", description_page_url);
-        contentValues.put("set_date", set.getTime());
-        contentValues.put("due", due.getTime());
+        contentValues.put("set_date", set);
+        contentValues.put("due_date", due);
         contentValues.put("archived", archived);
         contentValues.put("draft", draft);
         contentValues.put("show_in_markbook", show_in_markbook);

@@ -25,6 +25,9 @@
         <activity
             android:name=".activities.TaskListActivity"
             android:label="@string/task_list_label" />
+        <activity
+            android:name=".activities.TaskDetailActivity"
+            android:label="@string/task_detail_label" />
     </application>
 
 </manifest>

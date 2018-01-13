@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Task Summary</string>
     <string name="task_list_label">Your Historical Tasks</string>
+    <string name="task_detail_label">Task detail</string>
 
     <string name="prompt_host">Firefly Host</string>
     <string name="prompt_token">Secret Token</string>
