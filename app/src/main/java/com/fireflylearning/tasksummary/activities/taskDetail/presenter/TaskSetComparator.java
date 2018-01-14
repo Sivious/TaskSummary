@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.activities.TaskDetail.presenter;
+package com.fireflylearning.tasksummary.activities.taskDetail.presenter;
 
 import com.fireflylearning.tasksummary.objects.Task;
 

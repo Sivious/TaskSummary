@@ -20,14 +20,9 @@ import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
-import com.android.volley.Response.Listener;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.VolleyError;
-import com.fireflylearning.tasksummary.FireflyRequestQueue;
 import com.fireflylearning.tasksummary.R;
-import com.fireflylearning.tasksummary.activities.TasksList.view.TaskListActivity;
+import com.fireflylearning.tasksummary.activities.tasksList.view.TaskListActivity;
 import com.fireflylearning.tasksummary.activities.login.presenter.LoginPresenter;
-import com.fireflylearning.tasksummary.logic.database.TasksDB;
 
 
 /**

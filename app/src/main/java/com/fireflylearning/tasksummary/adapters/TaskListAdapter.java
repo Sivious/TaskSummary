@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fireflylearning.tasksummary.R;
-import com.fireflylearning.tasksummary.activities.TaskDetail.view.TaskDetailActivity;
+import com.fireflylearning.tasksummary.activities.taskDetail.view.TaskDetailActivity;
 import com.fireflylearning.tasksummary.logic.common.Constants;
 import com.fireflylearning.tasksummary.objects.Task;
 

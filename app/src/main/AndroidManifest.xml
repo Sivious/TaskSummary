@@ -23,10 +23,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.TasksList.view.TaskListActivity"
+            android:name=".activities.tasksList.view.TaskListActivity"
             android:label="@string/task_list_label" />
         <activity
-            android:name=".activities.TaskDetail.view.TaskDetailActivity"
+            android:name=".activities.taskDetail.view.TaskDetailActivity"
             android:label="@string/task_detail_label" />
     </application>
 

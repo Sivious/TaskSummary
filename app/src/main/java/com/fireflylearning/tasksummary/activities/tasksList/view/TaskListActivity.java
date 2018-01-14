@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.activities.TasksList.view;
+package com.fireflylearning.tasksummary.activities.tasksList.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fireflylearning.tasksummary.R;
-import com.fireflylearning.tasksummary.activities.TasksList.presenter.TaskListPresenter;
+import com.fireflylearning.tasksummary.activities.tasksList.presenter.TaskListPresenter;
 import com.fireflylearning.tasksummary.objects.Task;
 import com.fireflylearning.tasksummary.adapters.TaskListAdapter;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.activities.TaskDetail.view
+package com.fireflylearning.tasksummary.activities.taskDetail.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -7,7 +7,7 @@ import android.view.View
 import android.webkit.WebView
 import com.fireflylearning.tasksummary.R
 import android.webkit.WebViewClient
-import com.fireflylearning.tasksummary.activities.TaskDetail.presenter.TaskDetailPresenterKotlin
+import com.fireflylearning.tasksummary.activities.taskDetail.presenter.TaskDetailPresenterKotlin
 import com.fireflylearning.tasksummary.logic.common.Constants
 
 
@@ -45,10 +45,7 @@ class TaskDetailActivity : AppCompatActivity() {
         val intent = intent
         url = presenter.getUrl(intent.getStringExtra(Constants.INTENT_URL))
 
-        Log.d("SIVIANES", "url: " + url)
-        Log.d("SIVIANES", "data: " + intent.getStringExtra(Constants.INTENT_URL))
-
-        //I really do not understand this. The URL is created exactly as documentation says but, it does not show anything in webview
+        //Some urls does not have detail descriptions
     }
 
     override fun onSupportNavigateUp(): Boolean {

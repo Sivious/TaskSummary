@@ -1,6 +1,7 @@
 package com.fireflylearning.tasksummary.activities.login.presenter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,8 +22,7 @@ public class LoginPresenter {
         this.view = view;
     }
 
-    public void checkToken(String host, String token) {
-
+    public void checkToken(@NonNull String host, @NonNull String token) {
         FireflyRequestQueue.initialise(context, host, token);
 
         FireflyRequestQueue.getInstance().RunGetRequest(
@@ -49,7 +49,13 @@ public class LoginPresenter {
         );
     }
 
-    public void createDB() {
-        TasksDB db = new TasksDB(context);
+    private boolean createDB() {
+        try {
+            TasksDB db = new TasksDB(context);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

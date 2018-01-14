@@ -1,12 +1,12 @@
-package com.fireflylearning.tasksummary.activities.TasksList.presenter
+package com.fireflylearning.tasksummary.activities.tasksList.presenter
 
 import android.content.Context
 import android.database.Cursor
 import android.text.TextUtils
 import com.fireflylearning.tasksummary.FireflyRequestQueue
 import com.fireflylearning.tasksummary.R
-import com.fireflylearning.tasksummary.activities.TaskDetail.presenter.TaskSetComparator
-import com.fireflylearning.tasksummary.activities.TasksList.view.TaskListActivity
+import com.fireflylearning.tasksummary.activities.taskDetail.presenter.TaskSetComparator
+import com.fireflylearning.tasksummary.activities.tasksList.view.TaskListActivity
 import com.fireflylearning.tasksummary.logic.database.TasksDB
 import com.fireflylearning.tasksummary.objects.Task
 import com.google.gson.Gson
