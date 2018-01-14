@@ -13,19 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ff39a054-c164-4958-9111-44a0a89a9f98" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/FireflyRequestQueue.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/FireflyRequestQueue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/login/presenter/LoginPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/login/presenter/LoginPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/login/view/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/login/view/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/adapters/TaskListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/adapters/TaskListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_task_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_task_list.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/TaskDetail/presenter/TaskDetailPresenterKotlin.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/taskDetail/presenter/TaskDetailPresenterKotlin.kt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/TaskDetail/presenter/TaskSetComparator.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/taskDetail/presenter/TaskSetComparator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/TaskDetail/view/TaskDetailActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/taskDetail/view/TaskDetailActivity.kt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/TasksList/presenter/TaskListPresenter.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/tasksList/presenter/TaskListPresenter.kt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/TasksList/view/TaskListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/tasksList/view/TaskListActivity.java" />
     </list>
     <ignored path="Task Summary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2283,7 +2270,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515941583658" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515941614894" />
       </method>
     </configuration>
     <configuration default="false" name="TaskUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
@@ -2357,7 +2344,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515941583658" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515941614894" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -2430,7 +2417,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515941583658" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515941614894" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2478,7 +2465,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515941583659" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515941614894" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2661,7 +2648,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515941583659" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515941614895" />
       </method>
     </configuration>
     <list size="6">
@@ -2791,7 +2778,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515930390706</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Tests added">
+      <created>1515941597176</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1515941597176</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2938,7 +2932,8 @@
     <MESSAGE value="Add back button; Add forgotten animation xml;" />
     <MESSAGE value="Add forgotten classes; Login refactor to unpack the app logic of visual logic;" />
     <MESSAGE value="A minor implementation of CLEAN architecture; Classes in Kotlin;" />
-    <option name="LAST_COMMIT_MESSAGE" value="A minor implementation of CLEAN architecture; Classes in Kotlin;" />
+    <MESSAGE value="Tests added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
