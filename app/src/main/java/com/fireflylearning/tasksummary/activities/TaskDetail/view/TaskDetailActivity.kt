@@ -7,7 +7,7 @@ import android.view.View
 import android.webkit.WebView
 import com.fireflylearning.tasksummary.R
 import android.webkit.WebViewClient
-import com.fireflylearning.tasksummary.FireflyRequestQueue
+import com.fireflylearning.tasksummary.activities.TaskDetail.presenter.TaskDetailPresenterKotlin
 import com.fireflylearning.tasksummary.logic.common.Constants
 
 
@@ -17,7 +17,8 @@ import com.fireflylearning.tasksummary.logic.common.Constants
 
 class TaskDetailActivity : AppCompatActivity() {
     private lateinit var webView: WebView
-    private var url:String = ""
+    private var url: String = ""
+    private val presenter: TaskDetailPresenterKotlin = TaskDetailPresenterKotlin()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +33,6 @@ class TaskDetailActivity : AppCompatActivity() {
 
     private fun loadUrl() {
         webView.loadUrl(url)
-
     }
 
     private fun init() {
@@ -43,7 +43,7 @@ class TaskDetailActivity : AppCompatActivity() {
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        url = FireflyRequestQueue.getInstance().createSession(intent.getStringExtra(Constants.INTENT_URL))
+        url = presenter.getUrl(intent.getStringExtra(Constants.INTENT_URL))
 
         Log.d("SIVIANES", "url: " + url)
         Log.d("SIVIANES", "data: " + intent.getStringExtra(Constants.INTENT_URL))
