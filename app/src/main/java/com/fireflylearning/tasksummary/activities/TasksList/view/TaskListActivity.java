@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.activities;
+package com.fireflylearning.tasksummary.activities.TasksList.view;
 
 import android.database.Cursor;
 import android.os.Bundle;

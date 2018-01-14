@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="8dp"
-    tools:context="com.fireflylearning.tasksummary.activities.TaskListActivity">
+    tools:context="com.fireflylearning.tasksummary.activities.TasksList.view.TaskListActivity">
 
     <ListView
         android:id="@+id/list"

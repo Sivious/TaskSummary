@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.activities;
+package com.fireflylearning.tasksummary.activities.login.view;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -25,7 +25,8 @@ import com.android.volley.Response.ErrorListener;
 import com.android.volley.VolleyError;
 import com.fireflylearning.tasksummary.FireflyRequestQueue;
 import com.fireflylearning.tasksummary.R;
-import com.fireflylearning.tasksummary.activities.TaskListActivity;
+import com.fireflylearning.tasksummary.activities.TasksList.view.TaskListActivity;
+import com.fireflylearning.tasksummary.activities.login.presenter.LoginPresenter;
 import com.fireflylearning.tasksummary.logic.database.TasksDB;
 
 
@@ -34,19 +35,26 @@ import com.fireflylearning.tasksummary.logic.database.TasksDB;
  */
 public class LoginActivity extends AppCompatActivity {
 
-    // UI references.
-    private EditText mHostView;
+    //region UI references.
+
+    EditText mHostView;
     private EditText mTokenView;
     private View mProgressView;
     private View mLoginFormView;
 
-    enum tokenError {
+    public enum tokenError {
         networkError, hostError, invalidToken
     }
+    //endregion
+
+    LoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        presenter = new LoginPresenter(getApplicationContext(), this);
+
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mHostView = (EditText) findViewById(R.id.host);
@@ -112,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            checkToken(host, token);
+            presenter.checkToken(host, token);
         }
     }
 
@@ -153,43 +161,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void checkToken(String host, String token) {
+    public void showTokenError(tokenError tokenError) {
+        showProgress(false);
 
-        FireflyRequestQueue.initialise(getApplicationContext(), host, token);
-
-        FireflyRequestQueue.getInstance().RunGetRequest(
-                "login/api/checktoken",
-                new Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        showProgress(false);
-
-                        if(!response.equals("OK")) {
-                            showTokenError(tokenError.hostError);
-                            return;
-                        }
-
-                        performLogin();
-                        createDB();
-                    }
-                },
-                new ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        showProgress(false);
-                        showTokenError(error.networkResponse.statusCode == 401 ? tokenError.invalidToken : tokenError.hostError);
-                    }
-                }
-        );
-    }
-
-    private void createDB() {
-        TasksDB db = new TasksDB(this);
-    }
-
-    private void showTokenError(tokenError tokenError) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             dialog = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
@@ -227,6 +201,16 @@ public class LoginActivity extends AppCompatActivity {
     private void performLogin() {
         Intent intent = new Intent(this, TaskListActivity.class);
         startActivity(intent);
+    }
+
+    public void loginCorrect() {
+        showProgress(false);
+        showTokenError(LoginActivity.tokenError.hostError);
+    }
+
+    public void loginError() {
+        showProgress(false);
+        performLogin();
     }
 }
 
